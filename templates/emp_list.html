@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+#table1{
+  width: 40%;
+  width: 800px;
+  padding: 10px;
+  margin-top: 100px;
+  margin-left: 300px;
+  margin-right: 200px;
+}
+#table1,th,td{
+    border:1px solid black;
+}
+</style>
+<div class="container">
+    <a class="btn btn-success" id ='bt' href="{% url 'info:emp_api' %}" style="float: right;">For API</a>
+    <div id="table1" class="col-6" >
+
+        <h2 style="text-align: center;">Empolyee List</h2>
+        <table style="width:100%">
+            <tr>
+                <th style="font:bold;">Serial number</th>
+                <th style="font:bold;">Name</th>
+                <th style="font:bold;">Empolyee Id</th>
+                <th style="font:bold;">Address</th>
+                <th style="font:bold;">Position</th>
+                <th style="font:bold;">Action</th>
+            </tr>
+
+            {% for emp in object_list %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ emp.name }}</td>
+                <td>{{ emp.empolyee_id }}</td>
+                <td>{{ emp.adress }}</td>
+                <td>{{ emp.position }}</td>
+                <td>
+                    <!-- Example single danger button -->
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        Action
+                        </button>
+                        <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'info:emp_cre' %}">Enter Empolyee detail</a></li>
+                        <li><a class="dropdown-item" href="{% url 'info:emp_del' emp.pk %}">Detail</a></li>
+                        <li><a class="dropdown-item" href="{% url 'info:emp_up' emp.pk %}">UpDate</a></li>
+                        <li><a class="dropdown-item" href="{% url 'info:emp_det' emp.pk %}">Delete</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+            <br>
+
+        </table>
+        
+    </div>
+</div>
+{% endblock %}

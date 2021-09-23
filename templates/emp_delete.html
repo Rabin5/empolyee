@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<style>
+    #sub{
+        float: right
+    }
+#em{
+  margin-top: 100px;
+  margin-left: 300px;
+  margin-right: 200px;
+  width: 40%;
+  width: 500px;
+  border: 5px solid #73AD21;
+  padding: 10px;
+  align-items: center;
+}
+</style>
+<div class="container">
+    <div class="col-4" id="em">
+        <form method="post">{% csrf_token %}
+            <p>Are you sure you want to delete "{{ object }}"?</p>
+                <br>
+                <input class="btn btn-primary" type="submit" value="Cancel">
+                <input type="submit" class="btn btn-danger" id="sub" value="Delete">
+         </form>
+                   <br>
+                   <br>
+    </div>
+</div>
+           
+           
+{% endblock %}

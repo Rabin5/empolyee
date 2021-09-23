@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<style>
+    #sub{
+        float: right
+    }
+#bt{
+    float:left
+}
+    #em{
+  margin-top: 100px;
+  margin-left: 300px;
+  margin-right: 200px;
+  width: 40%;
+  width: 500px;
+  border: 5px solid #73AD21;
+  padding: 10px;
+}
+</style>
+<div class="container">
+    <div class="col-4" id="em">
+        <form method="post">{% csrf_token %}
+            {{ form|crispy }}
+            <br>
+            <br>
+            <input type="submit" class="btn btn-success" id="sub" value="Update">
+            <a class="btn btn-primary" id ='bt' href="{% url 'info:emp_list' %}">back</a>
+        </form>
+        <br>
+        <br>
+    </div>
+</div>
+
+
+{% endblock %}
+<script>
+    
+</script>

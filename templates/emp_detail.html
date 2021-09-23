@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+#table1{
+  width: 40%;
+  width: 800px;
+  padding: 10px;
+  margin-top: 100px;
+  margin-left: 300px;
+  margin-right: 200px;
+}
+#table1,th,td{
+    border:1px solid black;
+}
+</style>
+<div class="container">
+   
+    <div id="table1" class="col-6" >
+
+        <h2 style="text-align: center;">Empolyee Detail</h2>
+        <table style="width:100%">
+            <tr>
+                
+                <th style="font:bold;">Name</th>
+                <th style="font:bold;">Empolyee Id</th>
+                <th style="font:bold;">Address</th>
+                <th style="font:bold;">Position</th>
+            </tr>
+            
+            <tr>
+            
+                <td>{{ object.name }}</td>
+                <td>{{ object.empolyee_id }}</td>
+                <td>{{ object.adress }}</td>
+                <td>{{ object.position }}</td>
+            </tr>
+        
+            <br>
+
+        </table>
+    </div>
+</div>
+{% endblock %}
