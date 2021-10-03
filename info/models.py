@@ -7,7 +7,7 @@ class Empolyee(models.Model):
                                        'Mid level'), ('Senior', 'Senior'))
     name = models.CharField(max_length=300)
     empolyee_id = models.IntegerField()
-    citizan_document = models.FileField(upload_to='documents/')
-    adress = models.CharField(max_length=300)
+    citizanship_document = models.FileField(upload_to='documents/')
+    address = models.CharField(max_length=300)
     position = models.CharField(
         max_length=30, choices=position, default="Junior")
